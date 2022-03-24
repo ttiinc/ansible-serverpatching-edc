@@ -1,0 +1,6 @@
+---
+- hosts: rhel-servers
+  tasks:
+    - name: update rhel-servers
+      dnf:
+        update_cache: yes
