@@ -1,0 +1,18 @@
+---
+- name: create ansiblesvc user
+  user:
+    name: ansiblesvc
+    groups: root
+
+- name: copy ssh-key for ansiblesvc
+  authorized_key:
+    user: ansiblesvc
+    key: "{{ lookup('file', '/home/ffoerster/.ssh/ansible.pub') }}"
+
+- name: add sudoers file for ansiblesvc
+  copy:
+    src: sudoer_ansiblesvc
+    dest: /etc/sudoers.d/ansiblesvc
+    owner: root
+    group: root
+    mode: 0440

@@ -1,5 +1,7 @@
 ---
 - hosts: rhel-servers
+  vars:
+    ansible_user: admin
   tasks:
     - name: update rhel-servers
       dnf:

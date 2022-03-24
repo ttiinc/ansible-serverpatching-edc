@@ -1,0 +1,8 @@
+---
+- hosts: rhel-servers
+  become: true
+  vars:
+    ansible_user: admin
+
+  roles:
+    - bootstrap
